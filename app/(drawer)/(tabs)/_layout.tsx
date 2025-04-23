@@ -1,26 +1,42 @@
 import { Tabs } from 'expo-router';
 
 import { TabBarIcon } from '~/components/TabBarIcon';
+import { useTheme } from '~/lib/useTheme';
 
-export default function TabLayout() {
+export default function TabsLayout() {
+  const { colorScheme } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: colorScheme === 'dark' ? 'white' : 'black',
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Journal',
+          tabBarIcon: (props) => <TabBarIcon {...props} name="book-outline" />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="calendar"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Calendar',
+          tabBarIcon: (props) => <TabBarIcon {...props} name="calendar-outline" />,
+        }}
+      />
+      <Tabs.Screen
+        name="insights"
+        options={{
+          title: 'Insights',
+          tabBarIcon: (props) => <TabBarIcon {...props} name="analytics-outline" />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: (props) => <TabBarIcon {...props} name="settings-outline" />,
         }}
       />
     </Tabs>

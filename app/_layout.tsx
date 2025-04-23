@@ -1,5 +1,5 @@
-import '../global.css';
 import 'expo-dev-client';
+import '../global.css';
 
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -14,7 +14,7 @@ import { NAV_THEME } from '~/theme';
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
+  ErrorBoundary
 } from 'expo-router';
 
 export default function RootLayout() {

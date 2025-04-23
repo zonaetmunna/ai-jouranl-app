@@ -1,11 +1,14 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
 
 export const TabBarIcon = (props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof Ionicons>['name'];
   color: string;
+  size?: number;
+  focused?: boolean;
 }) => {
-  return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
+  const { size = 24, ...otherProps } = props;
+  return <Ionicons size={size} style={styles.tabBarIcon} {...otherProps} />;
 };
 
 export const styles = StyleSheet.create({
